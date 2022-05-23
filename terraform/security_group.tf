@@ -10,20 +10,20 @@ resource "aws_security_group" "custom-sg-public" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  // To Allow Port 80 Transport
+  // To Allow Port 8080 Transport
   ingress {
-    from_port = 80
+    from_port = 8080
     protocol = "tcp"
-    to_port = 80
+    to_port = 8080
     security_groups = ["${aws_security_group.alb-securitygroup.id}"]
   }
   // To allow workers to join master 
-ingress {
-    from_port       = 0
-    to_port         = 0
-    protocol        = "-1"
-    security_groups = ["${aws_security_group.custom-sg-private.id}"]
-  }
+# ingress {
+#     from_port       = 0
+#     to_port         = 0
+#     protocol        = "-1"
+#     security_groups = ["${aws_security_group.custom-sg-private.id}"]
+#   }
   egress {
     from_port       = 0
     to_port         = 0
