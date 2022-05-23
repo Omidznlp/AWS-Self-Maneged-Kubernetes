@@ -29,7 +29,7 @@
 
       stage('TF Apply') {
         steps {
-          sh 'terraform apply -input=false'
+          sh 'terraform -chdir=terraform apply -input=false'
         }
       }
     } 
