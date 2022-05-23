@@ -14,8 +14,8 @@
 
       stage('TF Init&Plan') {
         steps {
-          sh 'terraform init'
-          sh 'terraform plan'
+          sh 'terraform -chdir=AWS-Self-Maneged-Kubernetes/terraform init'
+          sh 'terraform -chdir=AWS-Self-Maneged-Kubernetes/terraform plan'
         }      
       }
 
