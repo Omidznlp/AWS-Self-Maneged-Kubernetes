@@ -1,0 +1,5 @@
+plugin: aws_ec2
+filters:
+    instance-state-name: running
+    tag:Name: slave-node
+    

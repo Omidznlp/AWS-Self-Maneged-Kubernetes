@@ -1,0 +1,28 @@
+#!/home/omid/myansible/bin/ansible-playbook
+- name: Configure master-node
+  hosts: all
+  remote_user: ubuntu
+  tasks:
+    - name: Install helm and istio
+      shell: | 
+        wget -O helm.tar.gz  https://get.helm.sh/helm-v3.8.1-linux-amd64.tar.gz
+        tar -zxvf helm.tar.gz
+        mv linux-amd64/helm /usr/local/bin/helm
+        helm repo add stable https://charts.helm.sh/stable
+        curl -L https://istio.io/downloadIstio | sh -
+        chown -R ubuntu:ubuntu /home/ubuntu/istio-1.13.4/
+        cp  /home/ubuntu/istio-1.13.4/bin/istioctl /usr/bin/istioctl
+      become: yes
+      become_user: root
+    - name: initialize istioctl, grafana and prometheus
+      shell: |
+        istioctl install --set profile=demo -y
+        kubectl label namespace default istio-injection=enabled
+        kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.13/samples/addons/grafana.yaml
+        kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.13/samples/addons/prometheus.yaml
+    - name: download from git
+      git:
+        repo: 'https://github.com/Omidznlp/DeathStarBench.git'
+        dest: /home/ubuntu/DeathStarBench
+    - name: Install service by helm
+      command: helm install social-media DeathStarBench/socialNetwork/helm-chart/socialnetwork/ --values DeathStarBench/socialNetwork/helm-chart/socialnetwork/values.yaml
