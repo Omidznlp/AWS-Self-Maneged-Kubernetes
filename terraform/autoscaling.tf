@@ -19,8 +19,8 @@ resource "aws_autoscaling_group" "master-autoscaling" {
   vpc_zone_identifier       = [aws_subnet.subnet-public-1.id,aws_subnet.subnet-public-2.id]
   target_group_arns         = ["${aws_lb_target_group.alb-tg.arn}"]
   min_size                  = 1
-  desired_capacity          = 2
-  max_size                  = 3
+  desired_capacity          = 1
+  max_size                  = 2
   health_check_type         = "EC2"
   health_check_grace_period = 200
   force_delete              = true
