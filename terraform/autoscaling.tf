@@ -3,6 +3,7 @@ resource "aws_launch_template" "template-master-instance" {
   name_prefix     = "master"
   image_id        = lookup(var.awsprops, "ami")
   instance_type   = "t3.medium"
+  security_group_names = [aws_security_group.custom-sg-public.name]
   key_name        = lookup(var.awsprops, "keyname")
   user_data = filebase64("install_docker_kubernets.sh")
 }
@@ -11,6 +12,7 @@ resource "aws_launch_template" "template-slave-instance" {
   image_id        = lookup(var.awsprops, "ami")
   instance_type   = "t3.small"
   key_name        = lookup(var.awsprops, "keyname")
+  security_group_names = [aws_security_group.custom-sg-private.name]
   user_data = filebase64("install_docker_kubernets.sh")
 }
 #Autoscaling Group
