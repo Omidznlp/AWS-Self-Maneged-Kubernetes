@@ -40,7 +40,7 @@ resource "aws_autoscaling_group" "master-autoscaling" {
 resource "aws_autoscaling_group" "slave-autoscaling" {
   name                      = "slave-autoscaling"
   vpc_zone_identifier       = [aws_subnet.subnet-private-1.id,aws_subnet.subnet-private-2.id]
-  min_size                  = 1
+  min_size                  = 2
   desired_capacity          = 2
   max_size                  = 3
   health_check_type         = "EC2"
