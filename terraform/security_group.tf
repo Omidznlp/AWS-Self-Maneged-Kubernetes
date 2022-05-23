@@ -41,9 +41,9 @@ resource "aws_security_group" "custom-sg-private" {
   vpc_id = aws_vpc.customvpc.id
   // To Allow all port 
   ingress {
-    from_port       = 0
-    to_port         = 0
-    protocol        = "-1"
+    from_port       = 22
+    to_port         = 22
+    protocol        = tcp
     security_groups = ["${aws_security_group.custom-sg-public.id}"]
   }
 
