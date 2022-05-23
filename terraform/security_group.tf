@@ -18,12 +18,12 @@ resource "aws_security_group" "custom-sg-public" {
     security_groups = ["${aws_security_group.alb-securitygroup.id}"]
   }
   // To allow workers to join master 
-# ingress {
-#     from_port       = 0
-#     to_port         = 0
-#     protocol        = "-1"
-#     security_groups = ["${aws_security_group.custom-sg-private.id}"]
-#   }
+ingress {
+    from_port       = 0
+    to_port         = 0
+    protocol        = "-1"
+    security_groups = ["${aws_security_group.custom-sg-private.id}"]
+  }
   egress {
     from_port       = 0
     to_port         = 0
