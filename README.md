@@ -1,8 +1,9 @@
 # AWS-Self-Maneged-Kubernetes
 
-## Social Network Microservices
-A social network with unidirectional follow relationships, implemented with loosely-coupled microservices, communicating with each other via Thrift RPCs.
+This repository helps to build a self-managed Kubenetes cluster on AWS infrastructure using Terraform with Jenkins pipeline. Then, Ansible is used to configure Kubernetes and install Helm, Istio, and run microservices on the master node. How to use this repository is coming very soon. 
 
+## Social Network Microservices
+A social network with unidirectional follow relationships, developed using microservices with loose coupling that communicate over Thrift RPCs.
 Application Structure
 
 <img width="1249" alt="socialNet_arch" src="https://user-images.githubusercontent.com/87664653/169954472-b2fa3790-c40b-4a6d-9ce3-4e0ee197c381.png">
