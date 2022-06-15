@@ -13,3 +13,8 @@ https://github.com/delimitrou/DeathStarBench
 
 ## AWS Architecture 
 ![Untitled Diagram drawio](https://user-images.githubusercontent.com/87664653/169788573-db6dd63e-c3e8-439f-ac10-236a91d7debc.png)
+
+## Jenkins and Terraform and AWS
+
+
+![Screen Shot 2021-07-01 at 4 43 17 PM](https://user-images.githubusercontent.com/87664653/173849388-eeff12a6-806a-4a1e-8c40-a25af72267c8.png)
