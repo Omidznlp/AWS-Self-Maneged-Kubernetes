@@ -25,4 +25,3 @@ Go to Manage Jenkins > Manage Plugins >Available > search Terraform.
 
 
 ![Screen Shot 2021-07-01 at 4 43 17 PM](https://user-images.githubusercontent.com/87664653/173849388-eeff12a6-806a-4a1e-8c40-a25af72267c8.png)
->>>>>>> 12cc70459d3a723200735b2c3240a834e9053ff7
