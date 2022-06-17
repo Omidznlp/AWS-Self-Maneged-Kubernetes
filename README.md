@@ -23,7 +23,16 @@ To Install Terraform plugin,
 Go to Manage Jenkins > Manage Plugins >Available > search Terraform.
 To add Terraform Pipeline,
 Go to new item > Enter an item name > choose Pipline > Click OK
-To add Jenkinsfile > Go to Pipline > Select "Pipline script from SCM" > Insert Repository URL (https://github.com/Omidznlp/AWS-Self-Maneged-Kubernetes.git) > In Section Branches to build, Insert (*/master) > In Script Path, Insert (terraform/Jenkinsfile) > Click Save 
+![jeankens-pipline](https://user-images.githubusercontent.com/87664653/174333990-f6b5789d-13cc-4d00-817e-75516f4f0018.png)
+
+To add Jenkinsfile > Go to Pipline > Select "Pipline script from SCM" > Insert Repository URL (https://github.com/Omidznlp/AWS-Self-Maneged-Kubernetes.git) 
+
+![pipe1](https://user-images.githubusercontent.com/87664653/174334049-7c2954f9-c036-4ed3-ba87-cb5d19bcdd4e.png)
+
+> In Section Branches to build, Insert (*/master) > In Script Path, Insert (terraform/Jenkinsfile) > Click Save 
+
+![pip2](https://user-images.githubusercontent.com/87664653/174334133-701b2cd9-9ab6-4d24-a2b5-408a8943888b.png)
+
 ## Jenkins and Terraform and AWS
 
 
