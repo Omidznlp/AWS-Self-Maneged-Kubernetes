@@ -3,6 +3,7 @@
 This repository helps to build a self-managed Kubenetes cluster on AWS infrastructure using Terraform with Jenkins pipeline. Then, Ansible is used to configure Kubernetes and install Helm, Istio, and run microservices on the master node. How to use this repository is coming very soon. 
 
 ## Social Network Microservices
+
 A social network with unidirectional follow relationships, developed using microservices with loose coupling that communicate over Thrift RPCs.
 Application Structure
 
@@ -11,5 +12,11 @@ Application Structure
 Ref:
 https://github.com/delimitrou/DeathStarBench
 
-## AWS Architecture 
+## AWS Architecture
+
 ![Untitled Diagram drawio](https://user-images.githubusercontent.com/87664653/169788573-db6dd63e-c3e8-439f-ac10-236a91d7debc.png)
+
+## Jenkins
+
+To Install Terraform plugin,
+Go to Manage Jenkins > Manage Plugins >Available > search Terraform.
