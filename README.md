@@ -21,6 +21,9 @@ https://github.com/delimitrou/DeathStarBench
 
 To Install Terraform plugin,
 Go to Manage Jenkins > Manage Plugins >Available > search Terraform.
+To add Terraform Pipeline,
+Go to new item > Enter an item name > choose Pipline > Click OK
+To add Jenkinsfile > Advanced Project Options > Pipline > select Pipline script from SCM > Insert Repository URL (https://github.com/Omidznlp/AWS-Self-Maneged-Kubernetes.git) > In Section Branches to build, Insert (*/master) > In Script Path, Insert (terraform/Jenkinsfile) 
 ## Jenkins and Terraform and AWS
 
 
