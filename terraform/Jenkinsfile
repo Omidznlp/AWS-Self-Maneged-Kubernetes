@@ -13,12 +13,14 @@
       }
 
       stage('TF Init&Plan') {
-        withAWS(credentials: 'terraform-credentials') {
+        
         steps {
+          withAWS(credentials: 'terraform-credentials', region: 'eu-north-1') {
           sh 'terraform -chdir=terraform init'
           sh 'terraform -chdir=terraform plan'
+          }
         }
-        }      
+              
       }
 
       stage('Approval') {
