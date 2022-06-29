@@ -33,7 +33,9 @@
 
       stage('TF Apply') {
         steps {
+          withAWS(credentials: 'terraform-credentials') {
           sh 'terraform -chdir=terraform apply -input=false --auto-approve'
+          }
         }
       }
       stage('Removal') {
@@ -46,7 +48,9 @@
 
       stage('TF Destroy') {
         steps {
+          withAWS(credentials: 'terraform-credentials') {
           sh 'terraform -chdir=terraform destroy -input=false --auto-approve'
+          }
         }
       }
     } 
