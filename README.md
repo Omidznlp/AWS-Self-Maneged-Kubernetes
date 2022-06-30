@@ -28,14 +28,27 @@ https://github.com/delimitrou/DeathStarBench
 To Install Terraform plugin,
 Go to Manage Jenkins > Manage Plugins >Available > search Terraform.\
 
+### Add AWS Credentiols
+
+To configure AWS credentials in Jenkins:
+
+1. Install Pipeline: AWS Steps
+ navigate to Manage Jenkins > Manage Plugins under the Available tab of the Jenkins dashboard. Choose to install the Pipeline: AWS Steps plugin without a restart.
+
+2. Add Aws credentials:
+  You can add credentials by navigating to Manage Jenkins > Manage Credentials > Jenkins (global) > Global Credentials > Add Credentials. Choose kind as AWS credentials and enter "terraform-credentials" as the ID. Enter the access key ID and access key secret, then select OK.
+Note!
+if you can not see the AWS credentials after adding the plugin.
+please go to Manage Jenkins >  Configure Credential Providers > change Providers to all available and change types to all availlable.
+
 ### Add Terraform Pipeline
 
 To add Terraform Pipeline,
 Go to new item > Enter an item name > choose Pipline > Click OK
 
-To add Jenkinsfile > Go to Pipline > Select "Pipline script from SCM" > Insert 
+To add Jenkinsfile > Go to Pipline > Select "Pipline script from SCM" > Insert
 
-Repository URL (https://github.com/Omidznlp/AWS-Self-Maneged-Kubernetes.git) 
+Repository URL (<https://github.com/Omidznlp/AWS-Self-Maneged-Kubernetes.git>)
 
 ![pipe1](https://user-images.githubusercontent.com/87664653/174334049-7c2954f9-c036-4ed3-ba87-cb5d19bcdd4e.png)
 
