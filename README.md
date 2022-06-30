@@ -37,10 +37,11 @@ To configure AWS credentials in Jenkins:
 
 2. Add Aws credentials:
   You can add credentials by navigating to Manage Jenkins > Manage Credentials > Jenkins (global) > Global Credentials > Add Credentials. Choose kind as AWS credentials and enter "terraform-credentials" as the ID. Enter the access key ID and access key secret, then select OK.
+![1cred](https://user-images.githubusercontent.com/87664653/176715051-1f5689b8-54b6-41a5-bc20-5540d8023519.png)
 Note!
 if you can not see the AWS credentials after adding the plugin.
 please go to Manage Jenkins >  Configure Credential Providers > change Providers to all available and change types to all availlable.
-
+![2 credentioalproviders](https://user-images.githubusercontent.com/87664653/176715202-9e3c1f24-1fac-4d49-a836-3f2692822b08.png)
 ### Add Terraform Pipeline
 
 To add Terraform Pipeline,
