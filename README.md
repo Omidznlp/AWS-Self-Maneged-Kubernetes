@@ -1,6 +1,6 @@
 # AWS-Self-Maneged-Kubernetes
 
-This repository helps to build a self-managed Kubenetes cluster on AWS infrastructure using Terraform with Jenkins pipeline. Then, Ansible is used to configure Kubernetes and install Helm, Istio, and run microservices on the master node. How to use this repository is coming very soon. 
+This repository helps to build a self-managed Kubenetes cluster on AWS infrastructure using Terraform with Jenkins pipeline. Then, Ansible is used to configure Kubernetes and install Helm, Istio, and run microservices on the master node. How to use this repository is coming very soon.
 
 ## Social Network Microservices
 
@@ -42,6 +42,7 @@ Note!
 if you can not see the AWS credentials after adding the plugin.
 please go to Manage Jenkins >  Configure Credential Providers > change Providers to all available and change types to all availlable.
 ![2 credentioalproviders](https://user-images.githubusercontent.com/87664653/176715202-9e3c1f24-1fac-4d49-a836-3f2692822b08.png)
+
 ### Add Terraform Pipeline
 
 To add Terraform Pipeline,
@@ -60,5 +61,3 @@ In Section Branches to build, Insert (*/master) > In Script Path, Insert (terraf
 ### Run Jenkins Pipline
 
 ![jeankens-pipline](https://user-images.githubusercontent.com/87664653/174333990-f6b5789d-13cc-4d00-817e-75516f4f0018.png)
-
-
