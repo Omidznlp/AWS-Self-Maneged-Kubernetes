@@ -82,7 +82,6 @@ Build with parameters: choose an action "apply or destroy"?
 ![param-1](https://user-images.githubusercontent.com/87664653/183070462-4a1bf476-009c-4419-a73a-dd801f5f0a7d.png)
 
 Before "TF Apply" or TF Destroy" stage, you must approve it manually in the Approval and Removal Stage by clicking on it and selecting "Proceed.".
-
-![pipiline1](https://user-images.githubusercontent.com/87664653/176860962-6dc95216-ce5a-40ef-bdfa-91df51f5472b.png)
+![param-2](https://user-images.githubusercontent.com/87664653/183070966-98c809db-2737-448b-98e3-1539654530ac.png)
 
 ## Ansible
