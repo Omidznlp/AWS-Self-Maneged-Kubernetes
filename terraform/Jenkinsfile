@@ -4,6 +4,12 @@
         label "master"
       } 
     }
+    parameters {
+        choice(
+            choices: ['Apply' , 'Destroy'],
+            description: 'Do you like to execute "apply" or "destroy" terraform?',
+            name: 'REQUESTED_ACTION')
+    }
 
     stages {
       stage('fetch_latest_code') {
@@ -13,7 +19,9 @@
       }
 
       stage('TF Init&Plan') {
-        
+        when {
+                expression { params.REQUESTED_ACTION == 'Apply' }
+            }
         steps {
           withAWS(credentials: 'terraform-credentials') {
           sh 'terraform -chdir=terraform init'
@@ -24,6 +32,9 @@
       }
 
       stage('Approval') {
+          when {
+                expression { params.REQUESTED_ACTION == 'Apply' }
+            }
         steps {
           script {
             def userInput = input(id: 'confirm', message: 'Apply Terraform?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Apply terraform', name: 'confirm'] ])
@@ -32,6 +43,9 @@
       }
 
       stage('TF Apply') {
+          when {
+                expression { params.REQUESTED_ACTION == 'Apply' }
+            }
         steps {
           withAWS(credentials: 'terraform-credentials') {
           sh 'terraform -chdir=terraform apply -input=false --auto-approve'
@@ -39,6 +53,9 @@
         }
       }
       stage('Removal') {
+          when {
+                expression { params.REQUESTED_ACTION == 'Destroy' }
+            }
         steps {
           script {
             def userInput = input(id: 'confirm', message: 'Destroy Terraform?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Destroy terraform', name: 'confirm'] ])
@@ -47,6 +64,9 @@
       }
 
       stage('TF Destroy') {
+            when {
+                expression { params.REQUESTED_ACTION == 'Destroy' }
+            }
         steps {
           withAWS(credentials: 'terraform-credentials') {
           sh 'terraform -chdir=terraform destroy -input=false --auto-approve'
