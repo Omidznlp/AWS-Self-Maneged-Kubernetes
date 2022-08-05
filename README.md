@@ -52,9 +52,9 @@ Go to Advanced Project Options > In Pipline Section > Select "Pipline script fro
 
 ![pipe1](https://user-images.githubusercontent.com/87664653/174334049-7c2954f9-c036-4ed3-ba87-cb5d19bcdd4e.png)
 
-In Section Branches to build, Insert (*/master) > In Script Path, Insert (Jenkinsfile) > Click Save.
+In Section Branches to build, Insert (*/master) > In Script Path, Insert (terraform/Jenkinsfile) > Click Save.
 
-![ec22](https://user-images.githubusercontent.com/87664653/176857521-71b2672d-4ec1-4846-bd4d-b7bcd96107e3.png)
+![pip2](https://user-images.githubusercontent.com/87664653/174334133-701b2cd9-9ab6-4d24-a2b5-408a8943888b.png)
 
 ## Jenkins Nodes Label
 
