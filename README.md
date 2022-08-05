@@ -78,7 +78,8 @@ Note! Simply, you can change the label on the Jenkinsfile or choose your node fr
 ### Run Jenkins Pipline
 
 Build with parameters: choose an action "apply or destroy"? 
-![choose param](https://user-images.githubusercontent.com/87664653/176866650-796a5d31-c62a-4d78-ae0d-eaf85b34f1a9.png)
+
+![param-1](https://user-images.githubusercontent.com/87664653/183070462-4a1bf476-009c-4419-a73a-dd801f5f0a7d.png)
 
 Before "TF Apply" or TF Destroy" stage, you must approve it manually in the Approval and Removal Stage by clicking on it and selecting "Proceed.".
 
