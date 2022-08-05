@@ -16,17 +16,17 @@ https://github.com/delimitrou/DeathStarBench
 
 ![Untitled Diagram drawio](https://user-images.githubusercontent.com/87664653/169788573-db6dd63e-c3e8-439f-ac10-236a91d7debc.png)
 
+## Jenkins
+
 ### Jenkins and Terraform and AWS
 
-
 ![Screen Shot 2021-07-01 at 4 43 17 PM](https://user-images.githubusercontent.com/87664653/173849388-eeff12a6-806a-4a1e-8c40-a25af72267c8.png)
-
-## Jenkins
 
 ### Install Terraform plugin
 
 To Install Terraform plugin,
-Go to Manage Jenkins > Manage Plugins >Available > search Terraform.\
+
+Go to Manage Jenkins > Manage Plugins >Available > search Terraform > Choose to install Terraform plugin.
 
 ### Add AWS Credentiols
 
@@ -46,18 +46,42 @@ please go to Manage Jenkins >  Configure Credential Providers > change Providers
 ### Add Terraform Pipeline
 
 To add Terraform Pipeline,
-Go to new item > Enter an item name > choose Pipline > Click OK
-
-To add Jenkinsfile > Go to Pipline > Select "Pipline script from SCM" > Insert
-
-Repository URL (<https://github.com/Omidznlp/AWS-Self-Maneged-Kubernetes.git>)
+Go to new item > Enter an item name > choose Pipline > Click OK.
+Then, To add Jenkinsfile:
+Go to Advanced Project Options > In Pipline Section > Select "Pipline script from SCM" . > Select "Git" in SCM section > Insert Repository URL (<https://github.com/Omidznlp/AWS-Self-Maneged-Kubernetes.git>) in Repositoriis Section
 
 ![pipe1](https://user-images.githubusercontent.com/87664653/174334049-7c2954f9-c036-4ed3-ba87-cb5d19bcdd4e.png)
 
-In Section Branches to build, Insert (*/master) > In Script Path, Insert (terraform/Jenkinsfile) > Click Save 
+In Section Branches to build, Insert (*/master) > In Script Path, Insert (Jenkinsfile) > Click Save.
 
-![pip2](https://user-images.githubusercontent.com/87664653/174334133-701b2cd9-9ab6-4d24-a2b5-408a8943888b.png)
+![ec22](https://user-images.githubusercontent.com/87664653/176857521-71b2672d-4ec1-4846-bd4d-b7bcd96107e3.png)
+
+## Jenkins Nodes Label
+
+I used agent with "master" label to build Terraform Pipile, In Jenkinsfile into repositoy you can find it.
+
+```
+    agent {
+      node {
+        label "master"
+      } 
+`    }
+```
+
+I gave my Jenkins server the label "master," and then I ran Terraform on it.
+Go to Manage Jenkins > Click "Manage nodes and clouds" > Select setting (left side of the list of nodes) > Under the label section, add "master" > Save it.
+
+![nodelabel](https://user-images.githubusercontent.com/87664653/176857627-0857c869-59e9-40ce-98e3-0992a9e871cc.png)
+
+Note! Simply, you can change the label on the Jenkinsfile or choose your node from your node lists from which you would like to execute terraform and then add the "master" label to it.
 
 ### Run Jenkins Pipline
 
-![jeankens-pipline](https://user-images.githubusercontent.com/87664653/174333990-f6b5789d-13cc-4d00-817e-75516f4f0018.png)
+Build with parameters: choose an action "apply or destroy"? 
+![choose param](https://user-images.githubusercontent.com/87664653/176866650-796a5d31-c62a-4d78-ae0d-eaf85b34f1a9.png)
+
+Before "TF Apply" or TF Destroy" stage, you must approve it manually in the Approval and Removal Stage by clicking on it and selecting "Proceed.".
+
+![pipiline1](https://user-images.githubusercontent.com/87664653/176860962-6dc95216-ce5a-40ef-bdfa-91df51f5472b.png)
+
+## Ansible
