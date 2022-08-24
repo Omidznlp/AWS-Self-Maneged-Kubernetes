@@ -10,7 +10,7 @@ resource "aws_launch_template" "template-master-instance" {
 resource "aws_launch_template" "template-slave-instance" {
   name_prefix     = "slave"
   image_id        = lookup(var.awsprops, "ami")
-  instance_type   = "t3.small"
+  instance_type   = "t3.medium"
   key_name        = lookup(var.awsprops, "keyname")
   vpc_security_group_ids = ["${aws_security_group.custom-sg-private.id}"]
   user_data = filebase64("install_docker_kubernets.sh")
