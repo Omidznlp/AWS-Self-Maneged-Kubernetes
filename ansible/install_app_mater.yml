@@ -3,7 +3,7 @@
   hosts: all
   remote_user: ubuntu
   tasks:
-    - name: Download helm and istio
+    - name: Download helm 
       shell: | 
         wget -O helm.tar.gz  https://get.helm.sh/helm-v3.8.1-linux-amd64.tar.gz
         tar -zxvf helm.tar.gz
