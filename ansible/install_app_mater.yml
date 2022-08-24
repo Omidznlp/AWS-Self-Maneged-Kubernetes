@@ -3,14 +3,16 @@
   hosts: all
   remote_user: ubuntu
   tasks:
-    - name: Install helm and istio
+    - name: Download helm and istio
       shell: | 
         wget -O helm.tar.gz  https://get.helm.sh/helm-v3.8.1-linux-amd64.tar.gz
         tar -zxvf helm.tar.gz
+        curl -L https://istio.io/downloadIstio | sh -
+    - name: setting for helm and istio
+      shell: |      
         mv linux-amd64/helm /usr/local/bin/helm
         helm repo add stable https://charts.helm.sh/stable
         curl -L https://istio.io/downloadIstio | sh -
-        chown -R ubuntu:ubuntu /home/ubuntu/istio-1.13.4/
         cp  /home/ubuntu/istio-1.13.4/bin/istioctl /usr/bin/istioctl
       become: yes
       become_user: root
