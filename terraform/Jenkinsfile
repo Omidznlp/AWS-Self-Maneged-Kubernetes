@@ -13,6 +13,9 @@
 
     stages {
       stage('fetch_latest_code') {
+          when {
+                expression { params.REQUESTED_ACTION == 'Apply' }
+            }
         steps {
           git url: 'https://github.com/Omidznlp/AWS-Self-Maneged-Kubernetes.git'
         }
