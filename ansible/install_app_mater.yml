@@ -7,9 +7,9 @@
       shell: | 
         wget -O helm.tar.gz  https://get.helm.sh/helm-v3.8.1-linux-amd64.tar.gz
         tar -zxvf helm.tar.gz
-        curl -L https://istio.io/downloadIstio | sh -
-    - name: setting for helm and istio
-      shell: |      
+    - name: Install and set configuration for helm and istio
+      shell: | 
+        curl -L https://istio.io/downloadIstio | sh -     
         mv linux-amd64/helm /usr/local/bin/helm
         helm repo add stable https://charts.helm.sh/stable
         curl -L https://istio.io/downloadIstio | sh -
