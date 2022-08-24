@@ -2,18 +2,31 @@
 resource "aws_launch_template" "template-master-instance" {
   name_prefix     = "master"
   image_id        = lookup(var.awsprops, "ami")
-  instance_type   = "c5d.large"
+  instance_type   = "t3.medium"
   vpc_security_group_ids = ["${aws_security_group.custom-sg-public.id}"]
   key_name        = lookup(var.awsprops, "keyname")
   user_data = filebase64("install_docker_kubernets.sh")
+  block_device_mappings {
+    device_name = "/dev/sda1"
+
+    ebs {
+      volume_size = 30
+    }
+  }
 }
 resource "aws_launch_template" "template-slave-instance" {
   name_prefix     = "slave"
   image_id        = lookup(var.awsprops, "ami")
-  instance_type   = "c5d.large"
+  instance_type   = "t3.medium"
   key_name        = lookup(var.awsprops, "keyname")
   vpc_security_group_ids = ["${aws_security_group.custom-sg-private.id}"]
   user_data = filebase64("install_docker_kubernets.sh")
+  block_device_mappings {
+    device_name = "/dev/sda1"
+    ebs {
+      volume_size = 30
+      }
+  }
 }
 #Autoscaling Group
 resource "aws_autoscaling_group" "master-autoscaling" {
